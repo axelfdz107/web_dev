@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+int main() {
+    int numero;
+    printf("Ingresa un número decimal (1-3999): ");
+    scanf("%d", &numero);
+
+    if (numero < 1 || numero > 3999) {
+        printf("El número debe estar entre 1 y 3999.\n");
+        return 1; // Indica un error
+    }
+
+    printf("En romano es: ");
+
+    // Milas (1000)
+    while (numero >= 1000) {
+        printf("M");
+        numero -= 1000;
+    }
+    // Centenas (900, 500, 400, 100)
+    if (numero >= 900) {
+        printf("CM");
+        numero -= 900;
+    }
+    if (numero >= 500) {
+        printf("D");
+        numero -= 500;
+    }
+    if (numero >= 400) {
+        printf("CD");
+        numero -= 400;
+    }
+    while (numero >= 100) {
+        printf("C");
+        numero -= 100;
+    }
+    // Decenas (90, 50, 40, 10)
+    if (numero >= 90) {
+        printf("XC");
+        numero -= 90;
+    }
+    if (numero >= 50) {
+        printf("L");
+        numero -= 50;
+    }
+    if (numero >= 40) {
+        printf("XL");
+        numero -= 40;
+    }
+    while (numero >= 10) {
+        printf("X");
+        numero -= 10;
+    }
+    // Unidades (9, 5, 4, 1)
+    if (numero >= 9) {
+        printf("IX");
+        numero -= 9;
+    }
+    if (numero >= 5) {
+        printf("V");
+        numero -= 5;
+    }
+    if (numero >= 4) {
+        printf("IV");
+        numero -= 4;
+    }
+    while (numero >= 1) {
+        printf("I");
+        numero -= 1;
+    }
+    printf("\n");
+
+    return 0; // Indica éxito
+}
